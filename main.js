@@ -93,7 +93,7 @@ const showerPlants = () => { //planta uma arvore
 
 const clear = () => {
     ctx.clearRect(robo.getY(),robo.getZ(),robo.getCorte(),robo.getCorte());// Limpar o canvas em cada quadro
-    //ctx.fillRect(y,z,dH,dH); pinta o cenario por onde o boneco passa
+    ctx.fillRect(robo.getY(),robo.getZ(),robo.getCorte(),robo.getCorte()); //pinta o cenario por onde o boneco passa
 }
 
 
