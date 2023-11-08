@@ -79,13 +79,13 @@ document.addEventListener("keyup", function(event) {
 
 const showerPlants = () => { //planta uma arvore
     if(flagList[0]){
-        ctx.drawImage( imagemA, 20, 20, 100, 100, robo.getY()+100, robo.getZ(), 120, 120);
+        ctx.drawImage( imagemA, 120, 20, 100, 100, robo.getY()+100, robo.getZ(), 120, 120);
     }else if(flagList[1]){
         ctx.drawImage(imagemA, 20, 20, 100, 100, robo.getY()-100,  robo.getZ(), 120, 120);
     }else if(flagList[2]){
-        ctx.drawImage(imagemA, 20, 20, 100, 100, robo.getY(),  robo.getZ()+100, 120, 120);
+        ctx.drawImage(imagemA, 220, 20, 100, 100, robo.getY(),  robo.getZ()+100, 120, 120);
     }else if(flagList[3]){
-        ctx.drawImage(imagemA, 20, 20, 100, 100, robo.getY(),  robo.getZ()-100, 120, 120);
+        ctx.drawImage(imagemA, 20, 20, 100, 100, robo.getY(),  robo.getZ()-130, 120, 120);
     }
 }
 
