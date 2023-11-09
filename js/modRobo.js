@@ -48,30 +48,34 @@ export class Robo {
         //this.ctx.fillRect(robo.getY(),robo.getZ(),robo.getCorte(),robo.getCorte()); //pinta o cenario por onde o boneco passa
     }
     // Desenha robo
-    drawFrame = (value,states,x, Xcompar, uP,right, xValue) => { //160 515 160
-        if(!x){
+    drawFrame = (value,states,x, Xcompar,right, xValue, zValue, yValue) => { //160 515 160
+        if(!x){ // para saber se o boneco está parado ou não
             if(this.getX() < Xcompar){
                 this.setX(xValue);
              }else{
                  this.setX(0);
              }
-             if(right){
-                 if(this.getY() <= 515){
-                    if(uP){
+             if(right){ // para saber se o boneco esta andando na vertifcal ou na horizontal
+                 if(yValue){
+                    if(this.getY() <= 515){
                         this.setY(10);
-                    }else{
+                    }
+                }else{
+                    if(this.getY() > 0){    //AJEITAR ISSO AQUI QUE NÃO TA LEGAL !!!!
                         this.setY(-10);
                     }
-                 }
-             }else{
-                 if(this.getZ() > 0){
-                    if(uP){
+                }
+            }else{
+                if(zValue){
+                    if(this.getZ() <= 515){
                         this.setZ(10);
-                    }else{
+                    }
+                }else{
+                    if(this.getZ() > 0){
                         this.setZ(-10);
                     }
-                 }
-             }
+                }
+            }
         }
         this.clear();
         if(x){
@@ -81,28 +85,28 @@ export class Robo {
     }
     // Movimentação do ROBO
     directionRight = () => { //movimentação do robo para direita
-        this.drawFrame(160, 0, false,160,true,true,160);
+        this.drawFrame(160, 0, false,160,true,true,160,true,false);
         this.flagList = [true,false,false,false];   
     }
     stopRight = () =>  { 
         this.drawFrame(160,0,true,160,true,true,160);
     }
     directionLeft = () => { //movimentação para a esquerda
-        this.drawFrame(460,0,false,160,false,true,160); 
+        this.drawFrame(460,0,false,160,false,true,160,true,false); 
         this.flagList = [false,true,false,false];  
     }
     stopLeft = () =>  {
         this.drawFrame(460,0,true,160,false,true,160);
     }
     directionDown = () => { //movimentação para baixo
-        this.drawFrame(0,0,false,450,false,false,150);
+        this.drawFrame(0,0,false,450,false,false,150,false,true);
         this.flagList = [false,false,true,false];   
     }
     stopDown = () =>  {
         this.drawFrame(0,0,true,450,false,false,150);
     }
     directionUp = () => { //movimentação para cima
-        this.drawFrame(320,300,false,450,true,false,150);
+        this.drawFrame(320,300,false,450,true,false,150,false,true);
         this.flagList = [false,false,false,true];
     }
     stopUp = () => {
