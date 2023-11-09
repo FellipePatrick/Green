@@ -9,9 +9,7 @@ export class Robo {
         this.dimensionBot = 100;
         this.ctx = ctx;
         this.flagList = [];
-        this.xValue = 0;
     }
-    getDimensionBotXValue() {return this.xValue;}
 
     getXCut() {return this.xCut;}
 
@@ -56,7 +54,7 @@ export class Robo {
         else this.setXCut(0);
     }
     // Draw Bot
-    drawFrame = (yCut,states,stop, isY, front) => { //160 515 160
+    drawFrame = (yCut,stop, isY, front, states = 0) => { //160 515 160
         this.clear();
         //Stop Play
         if(stop){
@@ -84,32 +82,32 @@ export class Robo {
     }
     // 
     directionRight = () => { //moviment bot to right
-        this.drawFrame(160, 0, false,false,true);
+        this.drawFrame(160, false,false,true);
         this.flagList = [true,false,false,false];   
     }
     stopRight = () =>  { 
         this.drawFrame(160,0,true,false,false);
     }
     directionLeft = () => { //moviment bot to left
-        this.drawFrame(460,0,false,false,false); 
+        this.drawFrame(460, false,false,false); 
         this.flagList = [false,true,false,false];  
     }
     stopLeft = () =>  {
-        this.drawFrame(460,0,true,false,false);
+        this.drawFrame(460, true,false,false);
     }
     directionDown = () => { //moviment bot to down
-        this.drawFrame(0,0,false,true,false);
+        this.drawFrame(0, false,true,false);
         this.flagList = [false,false,true,false];   
     }
     stopDown = () =>  {
-        this.drawFrame(0,0,true,true,false);
+        this.drawFrame(0, true,true,false);
     }
     directionUp = () => { //moviment bot to up
-        this.drawFrame(320,300,false,true,true);
+        this.drawFrame(320,false,true,true, 300);
         this.flagList = [false,false,false,true];
     }
     stopUp = () => {
-        this.drawFrame(320,300,true,true,true);
+        this.drawFrame(320,true,true,true, 300);
     }
 }
 
