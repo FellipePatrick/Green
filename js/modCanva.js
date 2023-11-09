@@ -1,17 +1,17 @@
-import {Robo} from './modRobo.js';
+import {Bot} from './bot.js';
 export const run = (ctx) => {
-    const robo = new Robo(ctx);
+    const bot = new Bot(ctx);
     document.addEventListener("keydown", function(event) {
-        if (event.key === "ArrowRight" ) robo.directionRight();
-        else if(event.key === "ArrowLeft") robo.directionLeft();
-        else if(event.key === "ArrowDown") robo.directionDown();
-        else if(event.key === "ArrowUp") robo.directionUp();
-        else if(event.key === "Enter") robo.showerPlants();
+        if (event.key === "ArrowRight" ) bot.directionRight();
+        else if(event.key === "ArrowLeft") bot.directionLeft();
+        else if(event.key === "ArrowDown") bot.directionDown();
+        else if(event.key === "ArrowUp") bot.directionUp();
+        else if(event.key === "Enter") bot.showerPlants();
     });
     document.addEventListener("keyup", function(event) {
-        if (event.key === "ArrowRight") robo.stopRight();
-        else if(event.key === "ArrowLeft") robo.stopLeft();
-        else if(event.key === "ArrowDown") robo.stopDown();
-        else if(event.key === "ArrowUp") robo.stopUp();
+        if (event.key === "ArrowRight") bot.stopRight();
+        else if(event.key === "ArrowLeft") bot.stopLeft();
+        else if(event.key === "ArrowDown") bot.stopDown();
+        else if(event.key === "ArrowUp") bot.stopUp();
     });
 }
