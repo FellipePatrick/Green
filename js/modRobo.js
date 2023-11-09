@@ -8,6 +8,10 @@ export class Robo {
         this.corteBoneco = 100;
         this.ctx = ctx;
         this.flagList = [];
+        this.xValue = 0;
+    }
+    getxValue(){
+        return this.xValue;
     }
     getX(){
         return this.x;
@@ -17,6 +21,14 @@ export class Robo {
     }
     getY(){
         return this.y;
+    }
+    setXValue(value){
+        if(value != 0){
+            this.xValue+=value;
+        }else{
+            this.xValue = 0;    
+        }
+        this.setX(this.xValue);
     }
     setY(value){
         this.y += value;
@@ -48,25 +60,34 @@ export class Robo {
         //this.ctx.fillRect(robo.getY(),robo.getZ(),robo.getCorte(),robo.getCorte()); //pinta o cenario por onde o boneco passa
     }
     // Desenha robo
-    drawFrame = (value,states,x, Xcompar,right, xValue, zValue, yValue) => { //160 515 160
-        if(!x){ // para saber se o boneco está parado ou não
-            if(this.getX() < Xcompar){
-                this.setX(xValue);
-             }else{
-                 this.setX(0);
-             }
-             if(right){ // para saber se o boneco esta andando na vertifcal ou na horizontal
-                 if(yValue){
+    drawFrame = (value,states,stop, isY, front) => { //160 515 160
+        // para saber se o boneco está parado ou não
+        this.clear();
+        if(stop){
+            this.setX(states);
+        }else{
+            if(!isY){
+                if(this.setXValue() < 160){
+                    this.setXValue(160);
+                }else{
+                    this.setXValue(0);
+                }
+                if(front){
                     if(this.getY() <= 515){
                         this.setY(10);
                     }
                 }else{
-                    if(this.getY() > 0){    //AJEITAR ISSO AQUI QUE NÃO TA LEGAL !!!!
+                    if(this.getY() > 0){ 
                         this.setY(-10);
                     }
                 }
             }else{
-                if(zValue){
+                if(this.setXValue() < 450){
+                    this.setXValue(150);
+                }else{
+                    this.setXValue(0);
+                }
+                if(!front){
                     if(this.getZ() <= 515){
                         this.setZ(10);
                     }
@@ -77,39 +98,40 @@ export class Robo {
                 }
             }
         }
-        this.clear();
-        if(x){
-            this.setX(states);
-        }
         this.ctx.drawImage(this.images.getImagem(),this.getX(),value,150,150, this.getY(),this.getZ(),100,100);
     }
     // Movimentação do ROBO
     directionRight = () => { //movimentação do robo para direita
-        this.drawFrame(160, 0, false,160,true,true,160,true,false);
+        this.drawFrame(160, 0, false,false,true);
         this.flagList = [true,false,false,false];   
     }
     stopRight = () =>  { 
-        this.drawFrame(160,0,true,160,true,true,160);
+        this.drawFrame(160,0,true,false,false);
     }
     directionLeft = () => { //movimentação para a esquerda
-        this.drawFrame(460,0,false,160,false,true,160,true,false); 
+        this.drawFrame(460,0,false,false,false); 
         this.flagList = [false,true,false,false];  
     }
     stopLeft = () =>  {
-        this.drawFrame(460,0,true,160,false,true,160);
+        this.drawFrame(460,0,true,false,false);
     }
     directionDown = () => { //movimentação para baixo
-        this.drawFrame(0,0,false,450,false,false,150,false,true);
+        this.drawFrame(0,0,false,true,false);
         this.flagList = [false,false,true,false];   
     }
     stopDown = () =>  {
-        this.drawFrame(0,0,true,450,false,false,150);
+        this.drawFrame(0,0,true,true,false);
     }
     directionUp = () => { //movimentação para cima
-        this.drawFrame(320,300,false,450,true,false,150,false,true);
+        this.drawFrame(320,300,false,true,true);
         this.flagList = [false,false,false,true];
     }
     stopUp = () => {
-        this.drawFrame(320,300,true,450,true,false,150);
+        this.drawFrame(320,300,true,true,true);
     }
 }
+
+// limite up e down 150 ate 450
+
+// limete right e leeft 160
+
