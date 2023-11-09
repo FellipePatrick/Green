@@ -11,27 +11,6 @@ export class Robo {
         this.flagList = [];
     }
 
-    getXCut() {return this.xCut;}
-
-    setXCut(value){
-        if(value != 0) this.xCut+=value;
-        else this.xCut = 0;       
-    }
-
-    getYCut() {return this.yCut;}
-
-    setYCut(value){this.yCut = value;}
-
-    getXBot() {return this.xBot;}
-
-    setXBot(value){this.xBot += value;}
-
-    getYBot() {return this.yBot;}
-
-    setYBot(value){this.yBot += value;}
-    
-    getDimensionBot(){return this.dimensionBot;}
-    
     // Animation to grove
     showerPlants = () => { //plant one grove
         if(this.flagList[0]){
@@ -44,15 +23,7 @@ export class Robo {
             this.ctx.drawImage(this.images.getImgGrove(), 20, 20, 100, 100, this.getXBot(),  this.getYBot()-130, 120, 120);
         }
     }
-    // Code to clear window
-    clear = () => {
-        this.ctx.clearRect(this.getXBot(),this.getYBot(),this.getDimensionBot(),this.getDimensionBot());// Clear the were dimension of bot
-        //this.ctx.fillRect(robo.getX(),robo.getY(),robo.getDimensionBot(),robo.getDimensionBot()); //pinta o cenario por onde o boneco passa
-    }
-    alterCut = (end, now) => {
-        if(this.setXCut() < end) this.setXCut(now);
-        else this.setXCut(0);
-    }
+
     // Draw Bot
     drawFrame = (yCut,stop, isY, front, states = 0) => { //160 515 160
         this.clear();
@@ -78,37 +49,68 @@ export class Robo {
                 }
             }
         }
-        this.ctx.drawImage(this.images.getImgRobo(),this.getXCut(),yCut,150,150, this.getXBot(),this.getYBot(),100,100);
+        this.ctx.drawImage(this.images.getImgRobo(),this.getXCut(),yCut,this.getDimensionBot()+50,this.getDimensionBot()+50, this.getXBot(),this.getYBot(),this.getDimensionBot(),this.getDimensionBot());
     }
-    // 
+
+    alterCut = (end, now) => {
+        if(this.setXCut() < end) this.setXCut(now);
+        else this.setXCut(0);
+    }
+     // Code to clear window
+     clear = () => {
+        this.ctx.clearRect(this.getXBot(),this.getYBot(),this.getDimensionBot(),this.getDimensionBot());// Clear the were dimension of bot
+        //this.ctx.fillRect(robo.getX(),robo.getY(),robo.getDimensionBot(),robo.getDimensionBot()); //pinta o cenario por onde o boneco passa
+    }
+  
     directionRight = () => { //moviment bot to right
         this.drawFrame(160, false,false,true);
         this.flagList = [true,false,false,false];   
     }
-    stopRight = () =>  { 
-        this.drawFrame(160,0,true,false,false);
-    }
+
     directionLeft = () => { //moviment bot to left
         this.drawFrame(460, false,false,false); 
         this.flagList = [false,true,false,false];  
     }
-    stopLeft = () =>  {
-        this.drawFrame(460, true,false,false);
-    }
+
     directionDown = () => { //moviment bot to down
         this.drawFrame(0, false,true,false);
         this.flagList = [false,false,true,false];   
-    }
-    stopDown = () =>  {
-        this.drawFrame(0, true,true,false);
     }
     directionUp = () => { //moviment bot to up
         this.drawFrame(320,false,true,true, 300);
         this.flagList = [false,false,false,true];
     }
+
+    stopDown = () =>  {
+        this.drawFrame(0, true,true,false);
+    }
+    stopRight = () =>  { 
+        this.drawFrame(160,true,false,false);
+    }
+    
+    stopLeft = () =>  {
+        this.drawFrame(460, true,false,false);
+    }
+
     stopUp = () => {
         this.drawFrame(320,true,true,true, 300);
     }
+
+    getXCut() {return this.xCut;}
+    getYCut() {return this.yCut;}
+    getXBot() {return this.xBot;}
+    getYBot() {return this.yBot;}
+    getDimensionBot(){return this.dimensionBot;}
+
+    setXCut(value){
+        if(value != 0) this.xCut+=value;
+        else this.xCut = 0;       
+    }
+    setYCut(value){this.yCut = value;}
+    setXBot(value){this.xBot += value;}
+    setYBot(value){this.yBot += value;}
+
+
 }
 
 // limite up e down 150 ate 450
