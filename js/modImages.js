@@ -1,14 +1,10 @@
 export class Images{
-    imagem = new Image();
-    imagemA = new Image();
+    imgRobo = new Image();
+    imgGrove = new Image();
     constructor(){
-        this.imagemA.src = "./img/arvore.png";
-        this.imagem.src = "./img/robo.png";
+        this.imgGrove.src = "./img/arvore.png";
+        this.imgRobo.src = "./img/robo.png";
     }
-    getImagemA(){
-        return this.imagemA;
-    }
-    getImagem(){
-        return this.imagem;
-    }
+    getImgGrove(){ return this.imgGrove;}
+    getImgRobo(){ return this.imgRobo;}
 }
