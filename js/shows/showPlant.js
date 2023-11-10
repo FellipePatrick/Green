@@ -16,8 +16,5 @@ export class ShowPlant{
             this.ctx.drawImage(this.images.getImgGrove(), 20, 20, 100, 100, this.bot.getXBot(),  this.bot.getYBot(), 130, 120, 120);
         }
     }
-    metodo = () =>{
-        alert('oi');
-    }
 }
 
