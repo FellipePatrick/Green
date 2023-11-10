@@ -4,11 +4,11 @@ export class Bot {
     constructor(ctx){
         this.botCut = new BotCut();
         this.xBot = 0;
-        this.showBotFrames = new ShowBot(ctx,this,this.botCut); // trying talking with modShow with this and this.botCut
+        this.showBotFrames = new ShowBot(ctx,this,this.botCut); //
         this.yBot = 0;    
         this.dimensionBot = 100;
         this.flagList = [];
-        this.coord = []; // coordenadas dos obstaculos 
+        this.coord = []; // matrix of obstacles cordinates
     }
     directionRight = () => { //moviment bot to right
         this.showBotFrames.drawFrame(160, false,false,true);
