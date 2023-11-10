@@ -1,6 +1,6 @@
-import {Images} from './modImages.js';
-import {Bot} from './bot.js';
-export class ModShow{
+import {Images} from '../modImages.js';
+
+export class ShowBot{
     constructor(ctx, bot, botCut){
         this.images = new Images();
         this.ctx = ctx;
@@ -34,7 +34,7 @@ export class ModShow{
         this.ctx.drawImage(this.images.getImgRobo(),this.botCut.getXCut(),yCut,this.bot.getDimensionBot()+50,this.bot.getDimensionBot()+50, this.bot.getXBot(),this.bot.getYBot(),this.bot.getDimensionBot(),this.bot.getDimensionBot());
     }
     alterCut = (end, now) => {
-        if(this.botCut.setXCut() < end) this.botCut.setXCut(now);
+        if(this.botCut.getXCut() < end) this.botCut.setXCut(this.botCut.getXCut()+now);
         else this.botCut.setXCut(0);
     }
      // Code to clear window
