@@ -45,7 +45,6 @@ export class ShowBot{
      // Code to clear window
      clear = () => {
         this.ctx.clearRect(this.bot.getXBot(),this.bot.getYBot(),this.bot.getDimensionBot(),this.bot.getDimensionBot());// Clear the were dimension of bot
-        //this.ctx.fillRect(robo.getX(),robo.getY(),robo.getDimensionBot(),robo.getDimensionBot()); //pinta o cenario por onde o boneco passa
     }
 
     canWalkX(){
