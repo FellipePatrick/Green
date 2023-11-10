@@ -10,7 +10,7 @@ export const run = (ctx) => {
         else if(event.key === "ArrowLeft") bot.directionLeft();
         else if(event.key === "ArrowDown") bot.directionDown();
         else if(event.key === "ArrowUp") bot.directionUp();
-        else if(event.key === "Enter") window.getPlant().showPlant();
+        else if(event.key === "Enter") window.getPlant().getShowPlant().showerPlants();
     });
     document.addEventListener("keyup", function(event) {
         if (event.key === "ArrowRight") bot.stopRight();

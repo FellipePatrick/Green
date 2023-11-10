@@ -6,4 +6,5 @@ export class Window{
     getPlant(){
         return this.plant;
     }
+    
 }

@@ -5,7 +5,10 @@ export class Plant{
         this.ctx = ctx;
         this.ShowPlant = new ShowPlant(ctx,bot);
     }
-    showPlant(){
-        this.ShowPlant.showerPlants();
+    getShowPlant(){
+        return this.ShowPlant;
+    }
+    getCoordPlant(){
+        return this.ShowPlant.getCoord();
     }
 }
