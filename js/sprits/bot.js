@@ -8,6 +8,7 @@ export class Bot {
         this.yBot = 0;    
         this.dimensionBot = 100;
         this.flagList = [];
+        this.coord = []; // coordenadas dos obstaculos 
     }
     directionRight = () => { //moviment bot to right
         this.showBotFrames.drawFrame(160, false,false,true);
@@ -42,6 +43,13 @@ export class Bot {
     }
     getCtx(){
         return this.ctx;
+    }
+    //define coordenados dos obstaculos
+    setCoord(coordX, coordY){
+        this.coord.push([coordX, coordY]);
+    }
+    getCoord(){
+        return this.coord;
     }
     getXBot() {return this.xBot;}
     getYBot() {return this.yBot;}

@@ -16,18 +16,23 @@ export class ShowBot{
             if(isY){   
                 this.alterCut(450,150);  
                 //Collision up and down
-                if(front){
-                    if(this.bot.getYBot() > 0) this.bot.setYBot(-10);
-                }else{
-                    if(this.bot.getYBot() <= 515) this.bot.setYBot(10);      
+                if(this.canWalkY()){
+                    if(front){
+                        if(this.bot.getYBot() > 0) this.bot.setYBot(-10);
+                    }else{
+                        if(this.bot.getYBot() <= 515) this.bot.setYBot(10);      
+                    }
                 }     
             }else{
                 this.alterCut(160,160);  
                 //Collision right and left
-                if(front){
-                    if(this.bot.getXBot() <= 515) this.bot.setXBot(10);       
-                }else{
-                    if(this.bot.getXBot() > -20) this.bot.setXBot(-10);     
+
+                if(this.canWalkX()){
+                    if(front){
+                        if(this.bot.getXBot() <= 515) this.bot.setXBot(10);       
+                    }else{
+                        if(this.bot.getXBot() > -20) this.bot.setXBot(-10);     
+                    }
                 }
             }
         }
@@ -42,4 +47,32 @@ export class ShowBot{
         this.ctx.clearRect(this.bot.getXBot(),this.bot.getYBot(),this.bot.getDimensionBot(),this.bot.getDimensionBot());// Clear the were dimension of bot
         //this.ctx.fillRect(robo.getX(),robo.getY(),robo.getDimensionBot(),robo.getDimensionBot()); //pinta o cenario por onde o boneco passa
     }
+
+    canWalkX(){
+        let flag = true;
+        let matriz = this.bot.getCoord();
+        for(let i = 0; i < matriz.length; i++){
+            if(this.bot.getXBot()+100 >= matriz[i][0]){
+                if(this.bot.getXBot() == matriz[i][0]-100 && this.bot.getYBot() == matriz[i][1]){
+                    flag = false;
+                }
+            }
+        }
+        //console.log(flag);
+        return flag;
+    }
+    canWalkY(){
+        let flag = true;
+        let matriz = this.bot.getCoord();
+        for(let i = 0; i < matriz.length; i++){
+            if(this.bot.getYBot()+100 >= matriz[i][1]){
+                if(this.bot.getXBot() == matriz[i][0] && this.bot.getYBot() == matriz[i][1]-100){
+                    flag = false;
+                }
+            }
+        }
+        //console.log(flag);
+        return flag;
+    }
+
 }
