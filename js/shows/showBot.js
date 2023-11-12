@@ -16,7 +16,7 @@ export class ShowBot{
             if(isY){   
                 this.alterCut(450,150);  
                 //Collision up and down
-                if(this.canWalkY()){
+                if(this.canWalk()){
                     if(front){
                         if(this.bot.getYBot() > 0) this.bot.setYBot(-10);
                     }else{
@@ -26,8 +26,7 @@ export class ShowBot{
             }else{
                 this.alterCut(160,160);  
                 //Collision right and left
-
-                if(this.canWalkX()){
+                if(this.canWalk()){
                     if(front){
                         if(this.bot.getXBot() <= 515) this.bot.setXBot(10);       
                     }else{
@@ -47,31 +46,17 @@ export class ShowBot{
         this.ctx.clearRect(this.bot.getXBot(),this.bot.getYBot(),this.bot.getDimensionBot(),this.bot.getDimensionBot());// Clear the were dimension of bot
     }
 
-    canWalkX(){
-        let flag = true;
-        let matriz = this.bot.getCoord(); // set a matrix to get matrix coord of the groves
-        for(let i = 0; i < matriz.length; i++){
-            if(this.bot.getXBot()+100 >= matriz[i][0] || this.bot.getXBot()-100 >= matriz[i][0]){ // compare to see if bot coord plus one hundred is bigger then or equal then object colision coord 
-                if((this.bot.getXBot() == matriz[i][0]-100 && this.bot.getYBot() == matriz[i][1]) || (this.bot.getXBot() == matriz[i][0]+100 && this.bot.getYBot() == matriz[i][1])){ // compare to see if bot coord X e boot coord Y is equal 
-                    flag = false; // set the value of flag to false to make impossible moviment of bot
-                    console.log(matriz);
+    canWalk(){
+        for(let Coord of this.bot.getCoord()){
+            if ((this.bot.getXBot() < Coord[0] + 120) && (this.bot.getXBot()+ 100 > Coord[0]) &&
+                (this.bot.getYBot() < Coord[1] + 120) && (this.bot.getYBot()+ 100 > Coord[1])){
+                    if(this.bot.flagList[0]) this.bot.setXBot(-10);
+                    else if(this.bot.flagList[1]) this.bot.setXBot(10);
+                    else if(this.bot.flagList[2]) this.bot.setYBot(-10);
+                    else if(this.bot.flagList[3]) this.bot.setYBot(10);
+                    return false;
                 }
-            }
         }
-        return flag;
+        return true
     }
-    canWalkY(){
-        let flag = true;
-        let matriz = this.bot.getCoord();
-        for(let i = 0; i < matriz.length; i++){
-            if(this.bot.getYBot()+100 >= matriz[i][1] || this.bot.getYBot()-100 >= matriz[i][1]){
-                if((this.bot.getXBot() == matriz[i][0] && this.bot.getYBot() == matriz[i][1]-120) || (this.bot.getXBot() == matriz[i][0] && this.bot.getYBot() == matriz[i][1]+100)){
-                    flag = false;
-                    console.log(matriz);
-                }
-            }
-        }
-        return flag;
-    }
-
 }
