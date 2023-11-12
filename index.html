@@ -3,13 +3,56 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Jogo</title>
+        <title>Green - Planet Recoverer</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+        <link rel="icon" href="./assets/img/logo.png" type="image/png">
     </head>
     <body>
-        <h1>Robo Games</h1>
-        <canvas id="tela" width="600" height="600" style="border:1px solid black">
-
-        </canvas>
-        <script src="./main.js" type="module"></script>
+        <canvas id="tela" width="600" height="600"></canvas>
+        <section>
+            <div class="card info">
+                <i class="fa-solid fa-clock"></i>                
+                <a>30 segundos</a>
+            </div>
+            <div class="card info">
+                <i class="fa-solid fa-temperature-three-quarters"></i>
+                <a id="temp"></a>
+            </div>
+            <div class="card info">
+                <i class="fa-solid fa-tree"></i>
+                <a id="tree"></a>
+            </div>
+            <div class="card info">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <a>Nordeste </a>
+                <button>
+                    sobre
+                </button>
+            </div>
+            <div class="control">
+                <div class="pather" style="display: inline-block; margin-left: 50px; margin-top: 40px;">
+                    <div class="seta" style="align-items: center; margin-left: 49px; margin-bottom: 10px;">
+                        <i class="fa-solid fa-up-long"></i>
+                    </div>
+                    <div class="down" style="display: inline-flex;">
+                        <div class="seta" >
+                            <i class="fa-solid fa-left-long"></i>
+                        </div>
+                        <div class="seta">
+                            <i class="fa-solid fa-down-long"></i>
+                        </div>
+                        <div class="seta">
+                            <i class="fa-solid fa-right-long"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <button class="" style="margin-left: 150px;">Enter</button>
+                </div>
+            </div>
+        </section>
+        <script src="https://kit.fontawesome.com/4fe9bd0970.js" crossorigin="anonymous"></script>
+        <script src="./assets/js/main.js" type="module"></script>
     </body>
 </html>
