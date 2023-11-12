@@ -1,10 +1,10 @@
-import {Plant} from "./plant.js";
+import {Grove} from "./grove.js";
 export class Window{
     constructor(ctx, bot){
-        this.plant = new Plant(ctx, bot);
+        this.grove = new Grove(ctx, bot);
     }
-    getPlant(){
-        return this.plant;
+    getGrove(){
+        return this.grove;
     }
     
 }

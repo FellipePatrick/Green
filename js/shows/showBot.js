@@ -1,8 +1,10 @@
 import {Images} from '../modImages.js';
+import { ShowGrove } from './showGrove.js';
 
 export class ShowBot{
     constructor(ctx, bot, botCut){
         this.images = new Images();
+        this.Groves = new ShowGrove(ctx);
         this.ctx = ctx;
         this.bot = bot;
         this.botCut = botCut;
@@ -43,13 +45,19 @@ export class ShowBot{
     }
      // Code to clear window
      clear = () => {
-        this.ctx.clearRect(this.bot.getXBot(),this.bot.getYBot(),this.bot.getDimensionBot(),this.bot.getDimensionBot());// Clear the were dimension of bot
+        this.ctx.clearRect(0,0,600,600);// Clear window
+        this.updateWindow();
+    }
+    updateWindow = () => { // window update with the objects maked
+        for(let Coord of this.bot.getCoord()){
+            this.Groves.recoveGrove(Coord[0],Coord[1]);   
+        }
     }
 
-    canWalk(){
+    canWalk(){//code that asks if the robot can walk
         for(let Coord of this.bot.getCoord()){
-            if ((this.bot.getXBot() < Coord[0] + 120) && (this.bot.getXBot()+ 100 > Coord[0]) &&
-                (this.bot.getYBot() < Coord[1] + 120) && (this.bot.getYBot()+ 100 > Coord[1])){
+            if ((this.bot.getXBot() < Coord[0] + 80) && (this.bot.getXBot()+ 60 > Coord[0]) &&
+                (this.bot.getYBot() < Coord[1] + 60) && (this.bot.getYBot()+ 80 > Coord[1])){
                     if(this.bot.flagList[0]) this.bot.setXBot(-10);
                     else if(this.bot.flagList[1]) this.bot.setXBot(10);
                     else if(this.bot.flagList[2]) this.bot.setYBot(-10);
