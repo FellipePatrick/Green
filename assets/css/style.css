@@ -48,6 +48,7 @@ i{
   border-radius: 20px;
   border:1px solid blue;
   margin-left: 10px;
+  cursor: pointer;
   background-color: rgb(255, 255, 255);
 }
 
@@ -66,6 +67,9 @@ section {
   box-shadow:0 0 20px rgba(0, 0, 0, 0.2) ;
 }
 
+.modalin{
+  margin-left: 5%;
+}
 .control{
   border-radius: 10px;
   box-shadow:0 0 20px rgba(0, 0, 0, 0.2) ;
@@ -78,8 +82,34 @@ section {
   justify-content: center;
   height: 40px;
   width: 40px;
+  cursor: pointer;
   border-radius: 5px;
   background-color: white;
+  
+}
+
+.control .up{
+  align-items: center; 
+  margin-left: 49px;
+  margin-bottom: 10px;
+}
+
+.control .left{
+  margin-left:3px;
+}
+
+.control .right{
+  margin-left:5px;
+}
+
+.control .enter{
+  margin-left: 150px;
+}
+
+.control .pather{
+  display: inline-block; 
+  margin-left: 50px; 
+  margin-top: 40px;
 }
 
 .control i{
@@ -97,3 +127,59 @@ section {
   border:1px solid blue;
 }
 
+
+/* Estilo para o modal (inicialmente oculto) */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  width: 500px;
+  height: 500px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Adicione isso ao seu CSS */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Cor escura com opacidade */
+  z-index: 999; /* Certifique-se de que esteja acima do modal */
+}
+
+
+
+.modal i {
+  margin-top: -10px;
+  margin-left: 460px;
+  font-size: 1.5rem;
+  color: red;
+  cursor: pointer;
+}
+
+.modal .textSobre{
+  width: 100%;
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.modal .textSobre p{
+  margin-left: 10px;
+}
+
+
+.modal img{
+  margin-top: 2%;
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}

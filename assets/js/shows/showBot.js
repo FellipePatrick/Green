@@ -9,7 +9,7 @@ export class ShowBot{
         this.bot = bot;
         this.botCut = botCut;
     }
-    drawFrame = (yCut,stop, isY, front, states = 0) => { //160 515 160
+    drawFrame = (yCut,stop, isY, front, states = 0) => {
         this.clear();
         //Stop Play
         if(stop){
