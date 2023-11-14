@@ -16,7 +16,7 @@ export class Bot {
     }
 
     end(){
-        if(timer.innerHTML[0]+timer.innerHTML[1] <=  25){
+        if(timer.innerHTML[0]+timer.innerHTML[1] <=  0){
             return true;
         }else{
             this.showWindow.clear();

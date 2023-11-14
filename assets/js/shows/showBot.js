@@ -1,6 +1,6 @@
 import {Images} from '../mod/modImages.js';
 import { ShowGrove } from './showGrove.js';
-
+import {ShowWindow} from '../shows/showWindow.js';
 export class ShowBot{
     constructor(ctx, bot, botCut){
         this.images = new Images();
@@ -8,6 +8,7 @@ export class ShowBot{
         this.ctx = ctx;
         this.bot = bot;
         this.botCut = botCut;
+        this.showWindow = new ShowWindow(ctx);
     }
     drawFrame = (yCut,stop, isY, front, states = 0) => {
         this.clear();
@@ -46,6 +47,7 @@ export class ShowBot{
      // Code to clear window
     clear = () => {
         this.ctx.clearRect(0,0,600,600);// Clear window
+        this.showWindow.updateWindow(this.ctx);
         this.updateWindow();
     }
     updateWindow = () => { // window update with the objects maked

@@ -10,6 +10,7 @@ export class Timer{
         setInterval(() => {
             if(!this.ysEnd ){
                 timer.innerHTML = (parseInt(timer.innerHTML) - 1)+ " segundos";
+                //this.showWindow.updateWindow(ctx);
             }
             this.end(ctx);
         },1000);
@@ -17,7 +18,7 @@ export class Timer{
     };
     
     end(ctx){
-        if(timer.innerHTML[0]+timer.innerHTML[1] <=  25){
+        if(timer.innerHTML[0]+timer.innerHTML[1] <=  0){
             this.ysEnd = true;
             this.showWindow.clear(ctx);
         } 
