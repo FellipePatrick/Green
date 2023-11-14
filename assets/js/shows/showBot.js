@@ -1,4 +1,4 @@
-import {Images} from '../modImages.js';
+import {Images} from '../mod/modImages.js';
 import { ShowGrove } from './showGrove.js';
 
 export class ShowBot{
@@ -57,7 +57,7 @@ export class ShowBot{
     canWalk(){//code that asks if the robot can walk
         for(let Coord of this.bot.getCoord()){
             if ((this.bot.getXBot() < Coord[0] + 80) && (this.bot.getXBot()+ 60 > Coord[0]) &&
-                (this.bot.getYBot() < Coord[1] + 60) && (this.bot.getYBot()+ 80 > Coord[1])){
+                (this.bot.getYBot() < Coord[1] + 60) && (this.bot.getYBot()+ 50 > Coord[1])){
                     if(this.bot.flagList[0]) this.bot.setXBot(-10);
                     else if(this.bot.flagList[1]) this.bot.setXBot(10);
                     else if(this.bot.flagList[2]) this.bot.setYBot(-10);

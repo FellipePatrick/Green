@@ -1,10 +1,8 @@
-// Função para abrir o modal
 const openModal = () => {
     document.getElementById('myModal').style.display = 'block';
     document.getElementById('overlay').style.display = 'block';
   }
 
-  // Função para fechar o modal
 const closeModal = () =>  {
     document.getElementById('myModal').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
@@ -16,13 +14,11 @@ const clickUp = () => {
     document.dispatchEvent(eventoTecla);
 }
 
-
 const clickDown = () => {
     let eventoTecla = new Event('keydown');
     eventoTecla.key = 'ArrowDown';
     document.dispatchEvent(eventoTecla);
 }
-
 
 const clickRight = () => {
     let eventoTecla = new Event('keydown');

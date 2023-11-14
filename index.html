@@ -14,7 +14,7 @@
         <section>
             <div class="card info">
                 <i class="fa-solid fa-clock"></i>                
-                <a>30 segundos</a>
+                <a id="timeLevel"></a>
             </div>
             <div class="card info">
                 <i class="fa-solid fa-temperature-three-quarters"></i>
@@ -26,7 +26,7 @@
             </div>
             <div class="card info">
                 <i class="fa-solid fa-map-location-dot"></i>
-                <a>Nordeste </a>
+                <a id="local"> </a>
                 <button onclick="openModal()">
                     Sobre
                 </button>
@@ -34,14 +34,10 @@
                 <div class="modal" id="myModal">
                     <div class="modalin">
                         <i class="fa-solid fa-xmark" id="modalOverlay" onclick="closeModal()"></i>
-                        <img src="./assets/img/imNordeste.jpg" alt="" id="imSobre">
+                        <img alt="" id="imgModal">
                        <div class="textSobre">
-                        <a> Fase Nordeste</a><br>
-                        <p>
-                            A vegetação do Nordeste tinha relação direta com o clima da região. Áreas mais úmidas apresentavam formações mais densas,
-                             como florestas e matas. Nas áreas mais secas, como o semiárido, identificavam-se a presença da Caatinga, que possui 
-                             plantas adaptadas às condições climáticas locais.
-                        </p>
+                        <a id="localModal"></a><br>
+                        <p id="textModal"></p>
                        </div>
                     </div>
                 </div>
@@ -69,7 +65,7 @@
             </div>
         </section>
         <script src="https://kit.fontawesome.com/4fe9bd0970.js" crossorigin="anonymous"></script>
-        <script src="./assets/js/modal.js"></script>
+        <script src="./assets/js/mod/modal.js"></script>
         <script src="./assets/js/main.js" type="module"></script>
     </body>
 </html>

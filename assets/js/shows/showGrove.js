@@ -1,4 +1,4 @@
-import {Images} from '../modImages.js';
+import {Images} from '../mod/modImages.js';
 export class ShowGrove{
     constructor(ctx, bot){
         this.images = new Images();
