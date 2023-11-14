@@ -44,7 +44,7 @@ export class ShowBot{
         else this.botCut.setXCut(0);
     }
      // Code to clear window
-     clear = () => {
+    clear = () => {
         this.ctx.clearRect(0,0,600,600);// Clear window
         this.updateWindow();
     }

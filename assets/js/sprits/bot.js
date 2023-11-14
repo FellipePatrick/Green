@@ -1,45 +1,72 @@
 import {ShowBot} from '../shows/showBot.js';
+import {ShowWindow} from '../shows/showWindow.js';
 import {BotCut} from '../spritsCut/botCut.js';
+let timer = document.getElementById("timeLevel");
+
 export class Bot { 
     constructor(ctx){
         this.botCut = new BotCut();
         this.xBot = 0;
         this.showBotFrames = new ShowBot(ctx,this,this.botCut); //
+        this.showWindow = new ShowWindow(ctx);
         this.yBot = 0;    
         this.dimensionBot = 100;
         this.flagList = [];
-        this.coord = []; // matrix of obstacles cordinates
+        this.coord = []; // matrix of obstacles cordinates]
     }
+
+    end(){
+        if(timer.innerHTML[0]+timer.innerHTML[1] <=  25){
+            return true;
+        }else{
+            this.showWindow.clear();
+        } 
+        return false;
+
+    }
+
     directionRight = () => { //moviment bot to right
-        this.showBotFrames.drawFrame(160, false,false,true);
-        this.flagList = [true,false,false,false];   
+        if(!this.end()){
+            this.showBotFrames.drawFrame(160, false,false,true);
+            this.flagList = [true,false,false,false];
+        }   
     }
     directionLeft = () => { //moviment bot to left
-        this.showBotFrames.drawFrame(460, false,false,false); 
-        this.flagList = [false,true,false,false];  
+        if(!this.end()){
+            this.showBotFrames.drawFrame(460, false,false,false); 
+            this.flagList = [false,true,false,false];  
+        }
     }
     directionDown = () => { //moviment bot to down
-        this.showBotFrames.drawFrame(0, false,true,false);
-        this.flagList = [false,false,true,false];  
+        if(!this.end()){
+            this.showBotFrames.drawFrame(0, false,true,false);
+            this.flagList = [false,false,true,false];  
+        }
     }
     directionUp = () => { //moviment bot to up
-        this.showBotFrames.drawFrame(320,false,true,true, 300);
-        this.flagList = [false,false,false,true];
+        if(!this.end()){
+            this.showBotFrames.drawFrame(320,false,true,true, 300);
+            this.flagList = [false,false,false,true];
+        }
     }
 
     stopDown = () =>  {
-        this.showBotFrames.drawFrame(0, true,true,false);
+        if(!this.end())
+            this.showBotFrames.drawFrame(0, true,true,false);
     }
-    stopRight = () =>  { 
-        this.showBotFrames.drawFrame(160,true,false,false);
+    stopRight = () =>  {
+        if(!this.end())
+            this.showBotFrames.drawFrame(160,true,false,false);
     }
     
     stopLeft = () =>  {
-        this.showBotFrames.drawFrame(460, true,false,false);
+        if(!this.end())
+            this.showBotFrames.drawFrame(460, true,false,false);
     }
 
     stopUp = () => {
-        this.showBotFrames.drawFrame(320,true,true,true, 300);
+        if(!this.end())
+            this.showBotFrames.drawFrame(320,true,true,true, 300);
     }
     getCtx(){
         return this.ctx;

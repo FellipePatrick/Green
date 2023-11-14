@@ -1,4 +1,7 @@
 export class ShowWindow{
+    constructor(cxt){
+        this.ctx = cxt;
+    }
     clear = () => {
         this.ctx.clearRect(0,0,600,600);// Clear the were dimension of bo
     }
