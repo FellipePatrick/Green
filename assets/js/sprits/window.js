@@ -20,9 +20,18 @@ export class Window{
         this.setTextModal(this.level.getText());
         this.setImgModal(this.level.getPathImg());
     }
-    getLevel(){
-        return this.level;
+
+    updateTemperature(){
+        let tempNow = this.level.getTemperature() - (this.groveNum*20);
+        this.setTemp(tempNow);
+        this.setTree(this.groveNum);
     }
+
+    clear(ctx){ 
+        ctx.clearRect(0, 0, 600, 600);
+    }
+    
+    getLevel(){return this.level;}
     getGrove(){
         if(this.level.getQtdTree() > this.groveNum){
             this.groveNum++;
@@ -30,11 +39,17 @@ export class Window{
         }
         return this.grove;
     }
-    updateTemperature(){
-        let tempNow = this.level.getTemperature() - (this.groveNum*20);
-        this.setTemp(tempNow);
-        this.setTree(this.groveNum);
+
+    setTree(x){tree.innerHTML = x + " árvores";}
+    setTemp(x){temp.innerHTML = x + "° grau celsius";}
+    setTime(x){time.innerHTML = x + " segundo(s)";}
+    setLocal(x){
+        local.innerHTML = x;
+        localModal.innerHTML = x;
     }
+    setImgModal(x){imgModal.src = x;}
+    setTextModal(x){ textModal.innerHTML = x;}
+
     setLevel(x){
         switch(x){
             case 0:
@@ -45,24 +60,5 @@ export class Window{
             default:
                 alert("Voce perdeu!");        
         }
-    }
-    setTree(x){
-        tree.innerHTML = x + " árvores";
-    }
-    setTemp(x){
-        temp.innerHTML = x + "° grau celsius";
-    }
-    setTime(x){
-        time.innerHTML = x + " segundo(s)";
-    }
-    setLocal(x){
-        local.innerHTML = x;
-        localModal.innerHTML = x;
-    }
-    setImgModal(x){
-        imgModal.src = x;
-    }
-    setTextModal(x){
-        textModal.innerHTML = x;
     }
 }

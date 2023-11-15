@@ -1,14 +1,18 @@
 import {Images} from '../mod/modImages.js';
 import { ShowGrove } from './showGrove.js';
 import {ShowWindow} from '../shows/showWindow.js';
+import {BosCut} from '../spritsCut/bosCut.js';
+import {ShowBos} from '../shows/showBos.js';
 export class ShowBot{
-    constructor(ctx, bot, botCut){
+    constructor(ctx, bot, botCut,bos){
         this.images = new Images();
         this.Groves = new ShowGrove(ctx);
         this.ctx = ctx;
         this.bot = bot;
         this.botCut = botCut;
+        this.bos = bos;
         this.showWindow = new ShowWindow(ctx);
+        this.bosCut = new BosCut(); 
     }
     drawFrame = (yCut,stop, isY, front, states = 0) => {
         this.clear();
@@ -46,7 +50,7 @@ export class ShowBot{
     }
      // Code to clear window
     clear = () => {
-        this.ctx.clearRect(0,0,600,600);// Clear window
+        this.showWindow.clear(this.ctx);
         this.showWindow.updateWindow(this.ctx);
         this.updateWindow();
     }
@@ -54,6 +58,8 @@ export class ShowBot{
         for(let Coord of this.bot.getCoord()){
             this.Groves.recoveGrove(Coord[0],Coord[1]);   
         }
+        this.bos.updateBos();
+        this.bos.setContoursGrove(this.bot.getCoord()); 
     }
 
     canWalk(){//code that asks if the robot can walk
