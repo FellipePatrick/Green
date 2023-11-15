@@ -4,7 +4,7 @@ export class BosCut{
         this.yCut = 80;
         this.dimensionBos = 150;
     }
-    getXCut() {return this.xCut-50;}
+    getXCut() {return this.xCut-60;}
     getYCut() {return this.yCut;}
     getDimensionBos() {return this.dimensionBos;}
     setXCut(value){

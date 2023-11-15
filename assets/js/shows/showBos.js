@@ -22,7 +22,5 @@ export class ShowBos{
         }
     }
 
-    getContoursBos(){
-        return this.contoursBos;
-    }
+    getContoursBos(){return this.contoursBos;}
 }

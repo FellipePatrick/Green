@@ -7,22 +7,10 @@ export class Level{
         this.time = time;
         this. temperature = temperature;
     }
-    getQtdTree(){
-        return this.qtdTree;
-    }
-    getLocal= () =>{
-        return this.local;
-    }
-    getPathImg= () =>{
-        return this.pathImg;
-    }
-    getText = () =>{
-        return this.text;
-    }
-    getTime= () =>{
-        return this.time;
-    }
-    getTemperature = () =>{
-        return this.temperature;
-    }
+    getQtdTree(){return this.qtdTree;}
+    getLocal= () =>{return this.local;}
+    getPathImg= () =>{return this.pathImg;}
+    getText = () =>{return this.text;}
+    getTime= () =>{return this.time;}
+    getTemperature = () =>{return this.temperature;}
 }

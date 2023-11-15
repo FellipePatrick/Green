@@ -1,5 +1,4 @@
 import {Images} from '../mod/modImages.js';
-
 import {BosCut} from '../spritsCut/bosCut.js';
 export class ShowBot{
     constructor(ctx, bot, botCut,bos,showWindow){

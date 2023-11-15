@@ -11,9 +11,8 @@ export class ShowWindow{
         this.Groves = new ShowGrove(ctx);
     }
     
-    clear = () => {
-        this.ctx.clearRect(0,0,600,600);// Clear the were dimension of bo
-    }
+    clear = () => {this.ctx.clearRect(0,0,600,600);}
+
     updateWindow = () => {
         this.ctx.drawImage(this.images.getLevelScreen(),0,0,600,600);
         for(let Coord of this.contoursGrove){
@@ -22,8 +21,18 @@ export class ShowWindow{
         this.bos.updateBos();
     }
 
+    gameover = () => {
+        this.ctx.drawImage(this.images.getGameOver(),0,0,600,600);
+    }
+
+    win = () => {
+        this.ctx.drawImage(this.images.getWin(),0,0,600,600);
+    }
+
+    splashScreen = () => {
+        this.ctx.drawImage(this.images.getSplashScreen(),0,0,600,600);
+    }
+
     getContoursGrove = () => {return this.contoursGrove;}
     setContoursGrove = (contours) => {this.contoursGrove = contours;}
 }
-// colocar clear geral para limpar toda a tela
-//A classe window enviar as cordenadas para ser enviada para o showWindow

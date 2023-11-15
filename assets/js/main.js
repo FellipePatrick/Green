@@ -7,11 +7,11 @@ import {Window} from './sprits/window.js';
 
 let canvas = document.getElementById("tela");
 let ctx = canvas.getContext("2d");
+
 let bos = new Bos(ctx);
 let showWindow = new ShowWindow(ctx, bos);
 let timer = new Timer(ctx,bos, showWindow);
 let bot = new Bot(ctx,bos,timer, showWindow);
 timer.setTimer(bot);
 let  window = new Window(ctx, bot, timer, showWindow); 
-window.clear();
 run(bot, window);

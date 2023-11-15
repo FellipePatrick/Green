@@ -8,10 +8,12 @@ export class Bos{
         this.bosCut = new BosCut();
         this.ShowBos = new ShowBos(this.ctx, this.bosCut);
         this.contoursGrove = [];
+        this.contoursBos = [this.xBos, this.yBos];
+        this.gameOver = false;
     }
 
     addBos = () => {
-       this.go();
+        if(!this.gameOver) this.go();
     }
 
     updateBos = () => {
@@ -20,10 +22,27 @@ export class Bos{
 
     go = () => {
         this.ShowBos.newBos(this.xBos,this.yBos);
-        if(this.xBos < 500 && this.canGo(1)) this.setXBot(30);
-        else if(this.yBos < 500 && this.canGo(2)) this.setYBot(30);
-        else if(this.xBos > 0 && this.canGo(3))  this.setXBot(-30);
-        else if(this.yBos > 0 && this.canGo(4)) this.setYBot(-30);
+        if(this.xBos < 500 && this.canGo(1)){
+            this.setXBot(30);
+            this.contoursBos.push(this.getXBot(), this.getYBot());
+            return;
+        } 
+        else if(this.yBos < 500 && this.canGo(2)){
+            this.setYBot(30);
+            this.contoursBos.push(this.getXBot(), this.getYBot());
+            return;
+        } 
+        else if(this.xBos > 0 && this.canGo(3)){
+            this.setXBot(-30);
+            this.contoursBos.push(this.getXBot(), this.getYBot());
+            return;
+        }  
+        else if(this.yBos > 0 && this.canGo(4)){
+            this.setYBot(-30);
+            this.contoursBos.push(this.getXBot(), this.getYBot());
+            return;
+        } 
+        this.gameOver = true;
     }
 
     canGo(x){//collision
@@ -65,7 +84,8 @@ export class Bos{
     getXBot(){return this.xBos;}   
     getYBot(){return this.yBos;}
     getContoursGrove = () => {return this.contoursGrove;}
-
+    getContoursBos = () => {return this.contoursBos;}   
+    getGameOver = () => {return this.gameOver;}
     setContoursGrove = (contours) => {this.contoursGrove = contours;}
     setXBot(x){this.xBos += x;}
     setYBot(y){this.yBos += y;}   

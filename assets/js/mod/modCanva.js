@@ -1,4 +1,3 @@
-
 export const run = (bot, window) => {
     document.addEventListener("keydown", function(event) {
         if (event.key === "ArrowRight") bot.directionRight();
