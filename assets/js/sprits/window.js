@@ -1,7 +1,7 @@
 import { Level} from "../level/level.js";
 import {Grove} from "./grove.js";
 let temp = document.getElementById("temp");
-let tree = document.getElementById("tree");
+
 let time = document.getElementById("timeLevel");
 let local = document.getElementById("local");
 let localModal = document.getElementById("localModal");
@@ -10,11 +10,8 @@ let imgModal = document.getElementById("imgModal");
 export class Window{
     constructor(ctx, bot){
         this.level = this.setLevel(0);
-        console.log(this.level);
         this.grove = new Grove(ctx, bot);
-        this.groveNum = 0;
         this.setTemp(this.level.getTemperature());
-        this.setTree(this.groveNum);
         this.setTime(this.level.getTime());
         this.setLocal(this.level.getLocal());
         this.setTextModal(this.level.getText());
@@ -22,9 +19,8 @@ export class Window{
     }
 
     updateTemperature(){
-        let tempNow = this.level.getTemperature() - (this.groveNum*20);
+        let tempNow = this.level.getTemperature() - (this.grove.getQuantityGrove()*20);
         this.setTemp(tempNow);
-        this.setTree(this.groveNum);
     }
 
     clear(ctx){ 
@@ -33,14 +29,13 @@ export class Window{
     
     getLevel(){return this.level;}
     getGrove(){
-        if(this.level.getQtdTree() > this.groveNum){
-            this.groveNum++;
+        if(this.level.getQtdTree() > this.grove.getQuantityGrove()){
             this.updateTemperature();
         }
         return this.grove;
     }
 
-    setTree(x){tree.innerHTML = x + " árvores";}
+    
     setTemp(x){temp.innerHTML = x + "° grau celsius";}
     setTime(x){time.innerHTML = x + " segundo(s)";}
     setLocal(x){
