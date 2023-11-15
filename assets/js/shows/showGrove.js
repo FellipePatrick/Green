@@ -1,10 +1,11 @@
 import {Images} from '../mod/modImages.js';
 export class ShowGrove{
-    constructor(ctx, bot, grove){
+    constructor(ctx, bot, grove,timer){
         this.images = new Images();
         this.ctx = ctx;
         this.bot = bot;
         this.grove = grove;
+        this.timer = timer;
     }
     plantGrove = () => { //plant one grove
         if(this.bot.flagList[0] && this.bot.getXBot() < 420){

@@ -1,12 +1,12 @@
 import {ShowGrove} from '../shows/showGrove.js';
 let tree = document.getElementById("tree");
 export class Grove{
-    constructor(ctx,bot){
+    constructor(ctx,bot,timer){
         this.bot = bot;
         this.ctx = ctx;
         this.quantityGrove = 0;
         this.setTree(this.quantityGrove);
-        this.ShowGrove = new ShowGrove(ctx,bot,this);
+        this.ShowGrove = new ShowGrove(ctx,bot,this,timer);
     }
     getShowGrove(){return this.ShowGrove;}
     getCoordGrove(){return this.ShowGrove.getCoord();}

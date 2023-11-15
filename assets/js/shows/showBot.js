@@ -1,17 +1,14 @@
 import {Images} from '../mod/modImages.js';
-import { ShowGrove } from './showGrove.js';
-import {ShowWindow} from '../shows/showWindow.js';
+
 import {BosCut} from '../spritsCut/bosCut.js';
-import {ShowBos} from '../shows/showBos.js';
 export class ShowBot{
-    constructor(ctx, bot, botCut,bos){
+    constructor(ctx, bot, botCut,bos,showWindow){
         this.images = new Images();
-        this.Groves = new ShowGrove(ctx);
         this.ctx = ctx;
         this.bot = bot;
         this.botCut = botCut;
         this.bos = bos;
-        this.showWindow = new ShowWindow(ctx);
+        this.showWindow = showWindow;
         this.bosCut = new BosCut(); 
     }
     drawFrame = (yCut,stop, isY, front, states = 0) => {
@@ -43,6 +40,7 @@ export class ShowBot{
             }
         }
         this.ctx.drawImage(this.images.getImgRobo(),this.botCut.getXCut(),yCut,this.bot.getDimensionBot()+50,this.bot.getDimensionBot()+50, this.bot.getXBot(),this.bot.getYBot(),this.bot.getDimensionBot(),this.bot.getDimensionBot());
+        this.updateWindow();
     }
     alterCut = (end, now) => {
         if(this.botCut.getXCut() < end) this.botCut.setXCut(this.botCut.getXCut()+now);
@@ -50,18 +48,14 @@ export class ShowBot{
     }
      // Code to clear window
     clear = () => {
-        this.showWindow.clear(this.ctx);
+        this.showWindow.clear();
         this.showWindow.updateWindow(this.ctx);
-        this.updateWindow();
     }
     updateWindow = () => { // window update with the objects maked
-        for(let Coord of this.bot.getCoord()){
-            this.Groves.recoveGrove(Coord[0],Coord[1]);   
-        }
         this.bos.updateBos();
         this.bos.setContoursGrove(this.bot.getCoord()); 
+        this.showWindow.setContoursGrove(this.bot.getCoord());
     }
-
     canWalk(){//code that asks if the robot can walk
         for(let Coord of this.bot.getCoord()){
             if ((this.bot.getXBot() < Coord[0] + 80) && (this.bot.getXBot()+ 60 > Coord[0]) &&

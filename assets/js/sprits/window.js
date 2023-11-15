@@ -8,14 +8,15 @@ let localModal = document.getElementById("localModal");
 let textModal = document.getElementById("textModal");
 let imgModal = document.getElementById("imgModal");
 export class Window{
-    constructor(ctx, bot){
+    constructor(ctx, bot,timer,showWindow){
         this.level = this.setLevel(0);
-        this.grove = new Grove(ctx, bot);
+        this.grove = new Grove(ctx, bot,timer);
         this.setTemp(this.level.getTemperature());
         this.setTime(this.level.getTime());
         this.setLocal(this.level.getLocal());
         this.setTextModal(this.level.getText());
         this.setImgModal(this.level.getPathImg());
+        this.showWindow = showWindow;
     }
 
     updateTemperature(){
@@ -23,8 +24,8 @@ export class Window{
         this.setTemp(tempNow);
     }
 
-    clear(ctx){ 
-        ctx.clearRect(0, 0, 600, 600);
+    clear(){ 
+        this.showWindow.clear();
     }
     
     getLevel(){return this.level;}
