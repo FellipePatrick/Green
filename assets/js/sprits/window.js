@@ -11,6 +11,7 @@ export class Window{
     constructor(ctx, bot,timer,showWindow){
         this.level = this.setLevel(0);
         this.grove = new Grove(ctx, bot,timer);
+        this.time = timer;
         this.setTemp(this.level.getTemperature());
         this.setTime(this.level.getTime());
         this.setLocal(this.level.getLocal());
@@ -20,7 +21,7 @@ export class Window{
     }
 
     updateTemperature(){
-        let tempNow = this.level.getTemperature() - (this.grove.getQuantityGrove()*20);
+        let tempNow = (this.level.getTemperature() - (this.grove.getQuantityGrove()*20));
         this.setTemp(tempNow);
     }
 
@@ -51,7 +52,7 @@ export class Window{
             case 0:
                 let pathImg = "./assets/img/imNordeste.jpg";
                 let text = " A vegetação do Nordeste tinha relação direta com o clima da região. Áreas mais úmidas apresentavam formações mais densas, como florestas e matas. Nas áreas mais secas, como o semiárido, identificavam-se a presença da Caatinga, que possui plantas adaptadas às condições climáticas locais.";
-                const level = new Level("Nordeste", 5,pathImg, text,40,200);
+                const level = new Level("Nordeste", 5,pathImg, text,18,200);
                 return level;
             default:
                 alert("Voce perdeu!");        

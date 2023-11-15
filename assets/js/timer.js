@@ -17,7 +17,7 @@ export class Timer{
             }else this.splashScreen = false;
             if(!this.ysEnd  && !this.bos.getGameOver() && !this.splashScreen){
                 timer.innerHTML = (parseInt(timer.innerHTML) - 1)+ " segundos";
-                for(let i = 0; i < 10; i++) this.bos.addBos();
+                for(let i = 0; i < 1; i++) this.bos.addBos();
                 this.showWindow.updateWindow(this.ctx);
                 this.end(this.ctx);
                 bot.stateStop();
@@ -28,6 +28,10 @@ export class Timer{
         },1000);
     };
     
+    getTimeNow(){
+        return timer.innerHTML[0]+timer.innerHTML[1];
+    }
+
     end(){
         if(timer.innerHTML[0]+timer.innerHTML[1] ==  0){
             this.ysEnd = true;

@@ -6,7 +6,7 @@ export class Bos{
         this.xBos = 535;
         this.yBos = 535;
         this.bosCut = new BosCut();
-        this.ShowBos = new ShowBos(this.ctx, this.bosCut);
+        this.ShowBos = new ShowBos(this.ctx, this.bosCut, this);
         this.contoursGrove = [];
         this.contoursBos = [this.xBos, this.yBos];
         this.gameOver = false;
