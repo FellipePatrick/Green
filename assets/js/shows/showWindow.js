@@ -8,7 +8,7 @@ export class ShowWindow{
         this.ctx.clearRect(0,0,600,600);// Clear the were dimension of bo
     }
     updateWindow = () => {
-        this.ctx.drawImage(this.images.getSplashScreen(),0,0,600,600);
+        this.ctx.drawImage(this.images.getLevelScreen(),0,0,600,600);
     }
 }
 // colocar clear geral para limpar toda a tela
