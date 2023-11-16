@@ -22,7 +22,7 @@ export class Window{
     }
 
     updateTemperature(){
-        let tempNow = (this.level.getTemperature() - (this.grove.getQuantityGrove()*20)+ (this.bos.getQuantityBos()+10));
+        let tempNow = (this.level.getTemperature() - (this.grove.getQuantityGrove()*20));
         this.setTemp(tempNow);
     }
 

@@ -47,6 +47,9 @@ export class Bos{
     go = () => {
         this.ShowBos.newBos(this.xBos,this.yBos);
         var vez = Math.floor(Math.random() * 4) + 1;
+        let xIn = this.xBos;
+        let yIn = this.yBos;
+
         if(this.xBos < 500 && vez == 1 && this.canGo(1)) this.goRight();
         else if(this.yBos < 500 && vez == 2 && this.canGo(2)) this.goDown();
         else if(this.xBos > 0  && vez == 3 && this.canGo(3)) this.goLeft();
@@ -65,7 +68,9 @@ export class Bos{
                 this.goUp();
             } 
         }
-       // this.gameOver = true;
+        let xFin = this.xBos;
+        let yFin = this.yBos;
+        if(xIn == xFin && yIn == yFin) this.gameOver = true;
     }
 
     canGo(x){//collision
