@@ -13,5 +13,5 @@ let showWindow = new ShowWindow(ctx, bos);
 let timer = new Timer(ctx,bos, showWindow);
 let bot = new Bot(ctx,bos,timer, showWindow);
 timer.setTimer(bot);
-let  window = new Window(ctx, bot, timer, showWindow); 
+let  window = new Window(ctx, bot, timer, showWindow,bos); 
 run(bot, window);

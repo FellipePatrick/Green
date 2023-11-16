@@ -20,29 +20,57 @@ export class Bos{
         this.ShowBos.updateBos();
     }
 
+    goRight = () => {   
+        this.setXBot(30);
+        this.contoursBos.push(this.getXBot(), this.getYBot());
+        return;
+    }
+
+    goLeft = () => {    
+        this.setXBot(-30);
+        this.contoursBos.push(this.getXBot(), this.getYBot());
+        return;
+    }
+
+    goDown = () => {
+        this.setYBot(30);
+        this.contoursBos.push(this.getXBot(), this.getYBot());
+        return;
+    }
+
+    goUp = () => {
+        this.setYBot(-30);
+        this.contoursBos.push(this.getXBot(), this.getYBot());
+        return;
+    }
+
     go = () => {
         this.ShowBos.newBos(this.xBos,this.yBos);
-        if(this.xBos < 500 && this.canGo(1)){
-            this.setXBot(30);
-            this.contoursBos.push(this.getXBot(), this.getYBot());
-            return;
-        } 
-        else if(this.yBos < 500 && this.canGo(2)){
-            this.setYBot(30);
-            this.contoursBos.push(this.getXBot(), this.getYBot());
-            return;
-        } 
-        else if(this.xBos > 0 && this.canGo(3)){
-            this.setXBot(-30);
-            this.contoursBos.push(this.getXBot(), this.getYBot());
-            return;
-        }  
-        else if(this.yBos > 0 && this.canGo(4)){
-            this.setYBot(-30);
-            this.contoursBos.push(this.getXBot(), this.getYBot());
-            return;
-        } 
-        this.gameOver = true;
+        var vez = Math.floor(Math.random() * 4) + 1;
+        let xIn = this.xBos;
+        let yIn = this.yBos;
+
+        if(this.xBos < 500 && vez == 1 && this.canGo(1)) this.goRight();
+        else if(this.yBos < 500 && vez == 2 && this.canGo(2)) this.goDown();
+        else if(this.xBos > 0  && vez == 3 && this.canGo(3)) this.goLeft();
+        else if(this.yBos > 0 && vez == 4 && this.canGo(4)) this.goUp();
+        else{
+            if(this.xBos < 500 && this.canGo(1)){
+                this.goRight();
+            } 
+            else if(this.yBos < 500 && this.canGo(2)){
+                this.goDown();
+            } 
+            else if(this.xBos > 0 && this.canGo(3)){
+                this.goLeft();
+            }  
+            else if(this.yBos > 0 && this.canGo(4)){
+                this.goUp();
+            } 
+        }
+        let xFin = this.xBos;
+        let yFin = this.yBos;
+        if(xIn == xFin && yIn == yFin) this.gameOver = true;
     }
 
     canGo(x){//collision
@@ -84,7 +112,8 @@ export class Bos{
     getXBot(){return this.xBos;}   
     getYBot(){return this.yBos;}
     getContoursGrove = () => {return this.contoursGrove;}
-    getContoursBos = () => {return this.contoursBos;}   
+    getContoursBos = () => {return this.contoursBos;}  
+    getQuantityBos = () => {return this.contoursBos.length;} 
     getGameOver = () => {return this.gameOver;}
     setContoursGrove = (contours) => {this.contoursGrove = contours;}
     setXBot(x){this.xBos += x;}
