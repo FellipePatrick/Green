@@ -3,8 +3,8 @@ import {BosCut} from '../spritsCut/bosCut.js';
 export class Bos{
     constructor(ctx){
         this.ctx = ctx;
-        this.xBos = 535;
-        this.yBos = 535;
+        this.xBos = Math.floor(Math.floor(Math.random() * 536-200) + 200);
+        this.yBos = Math.floor(Math.floor(Math.random() * 536-200) + 200);
         this.bosCut = new BosCut();
         this.ShowBos = new ShowBos(this.ctx, this.bosCut, this);
         this.contoursGrove = [];
