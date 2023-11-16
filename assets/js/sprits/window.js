@@ -52,7 +52,7 @@ export class Window{
             case 0:
                 let pathImg = "./assets/img/imNordeste.jpg";
                 let text = " A vegetação do Nordeste tinha relação direta com o clima da região. Áreas mais úmidas apresentavam formações mais densas, como florestas e matas. Nas áreas mais secas, como o semiárido, identificavam-se a presença da Caatinga, que possui plantas adaptadas às condições climáticas locais.";
-                const level = new Level("Nordeste", 5,pathImg, text,18,200);
+                const level = new Level("Nordeste", 5,pathImg, text,40,200);
                 return level;
             default:
                 alert("Voce perdeu!");        
