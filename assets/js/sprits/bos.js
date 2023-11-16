@@ -88,20 +88,20 @@ export class Bos{
 
         for(let Coord of this.contoursGrove){
             if(x == 1){
-                if ((this.xBos+30 < Coord[0]+100) && (this.xBos+30 + 30 > Coord[0]) &&
-                    (this.yBos < Coord[1] + 100) && (this.yBos+30> Coord[1]))
+                if ((this.xBos+30 < Coord[0]+120) && (this.xBos+30 + 30 > Coord[0]) &&
+                    (this.yBos < Coord[1] + 120) && (this.yBos+30> Coord[1]))
                         return false; 
             }else if(x == 2){
-                if ((this.xBos < Coord[0] + 100) && (this.xBos+30 > Coord[0]) &&
-                    (this.yBos+30 < Coord[1] + 100) && (this.yBos+30+30 > Coord[1]))
+                if ((this.xBos < Coord[0] + 120) && (this.xBos+30 > Coord[0]) &&
+                    (this.yBos+30 < Coord[1] + 120) && (this.yBos+30+30 > Coord[1]))
                         return false;
             }else if(x == 3){
-                if ((this.xBos-30 < Coord[0] + 100) && (this.xBos-30-30 > Coord[0]) &&
-                    (this.yBos < Coord[1] + 100) && (this.yBos+30 > Coord[1]))
+                if ((this.xBos-30 < Coord[0] + 120) && (this.xBos-30-30 > Coord[0]) &&
+                    (this.yBos < Coord[1] + 120) && (this.yBos+30 > Coord[1]))
                         return false;
             }else if(x == 4){
-                if ((this.xBos < Coord[0] + 100) && (this.xBos+30 > Coord[0]) &&
-                    (this.yBos-30 < Coord[1] + 100) && (this.yBos-30-30 > Coord[1]))
+                if ((this.xBos < Coord[0] + 120) && (this.xBos+30 > Coord[0]) &&
+                    (this.yBos-30 < Coord[1] + 120) && (this.yBos-30-30 > Coord[1]))
                         return false;
             }
         }

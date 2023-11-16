@@ -54,7 +54,7 @@ export class Window{
                 alert("Esse é o Green, o jogo aonde você tem que isolar o calor, para que o robo consiga ficar no planeta em uma temperatura ideal, sem aumentar.");
                 let pathImg = "./assets/img/imNordeste.jpg";
                 let text = " A vegetação do Nordeste tinha relação direta com o clima da região. Áreas mais úmidas apresentavam formações mais densas, como florestas e matas. Nas áreas mais secas, como o semiárido, identificavam-se a presença da Caatinga, que possui plantas adaptadas às condições climáticas locais.";
-                const level = new Level("Nordeste", 5,pathImg, text,32,200);
+                const level = new Level("Nordeste", 20,pathImg, text,32,200);
                 return level;
             default:
                 alert("Voce perdeu!");        
