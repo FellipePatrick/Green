@@ -8,7 +8,7 @@ let localModal = document.getElementById("localModal");
 let textModal = document.getElementById("textModal");
 let imgModal = document.getElementById("imgModal");
 export class Window{
-    constructor(ctx, bot,timer,showWindow){
+    constructor(ctx, bot,timer,showWindow,bos){
         this.level = this.setLevel(0);
         this.grove = new Grove(ctx, bot,timer);
         this.time = timer;
@@ -18,10 +18,11 @@ export class Window{
         this.setTextModal(this.level.getText());
         this.setImgModal(this.level.getPathImg());
         this.showWindow = showWindow;
+        this.bos = bos;
     }
 
     updateTemperature(){
-        let tempNow = (this.level.getTemperature() - (this.grove.getQuantityGrove()*20));
+        let tempNow = (this.level.getTemperature() - (this.grove.getQuantityGrove()*20)+ (this.bos.getQuantityBos()+10));
         this.setTemp(tempNow);
     }
 
@@ -50,9 +51,10 @@ export class Window{
     setLevel(x){
         switch(x){
             case 0:
+                alert("Esse é o Green, o jogo aonde você tem que isolar o calor, para que o robo consiga ficar no planeta em uma temperatura ideal, sem aumentar.");
                 let pathImg = "./assets/img/imNordeste.jpg";
                 let text = " A vegetação do Nordeste tinha relação direta com o clima da região. Áreas mais úmidas apresentavam formações mais densas, como florestas e matas. Nas áreas mais secas, como o semiárido, identificavam-se a presença da Caatinga, que possui plantas adaptadas às condições climáticas locais.";
-                const level = new Level("Nordeste", 5,pathImg, text,40,200);
+                const level = new Level("Nordeste", 5,pathImg, text,32,200);
                 return level;
             default:
                 alert("Voce perdeu!");        
