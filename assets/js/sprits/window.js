@@ -1,7 +1,6 @@
 import { Level} from "../level/level.js";
 import {Grove} from "./grove.js";
 let temp = document.getElementById("temp");
-
 let time = document.getElementById("timeLevel");
 let local = document.getElementById("local");
 let localModal = document.getElementById("localModal");
@@ -37,7 +36,6 @@ export class Window{
         return this.grove;
     }
 
-    
     setTemp(x){temp.innerHTML = x + "° grau celsius";}
     setTime(x){time.innerHTML = x + " segundo(s)";}
     setLocal(x){
