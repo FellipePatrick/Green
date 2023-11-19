@@ -38,6 +38,8 @@ Bem-vindo ao Green, um jogo educativo que visa ensinar aos jogadores a importân
 
 4. Acesse o SMAS no seu navegador: `http://localhost:3000`
 
+5. Ou acesse https://fellipepatrick.github.io/Green
+
 ## Tecnologias Utilizadas
 
 - Frontend: [JavaScript]
